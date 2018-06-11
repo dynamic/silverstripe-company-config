@@ -4,3 +4,6 @@ Name: silverstripecompany-configconfig
 Dynamic\CompanyConfig\Model\CompanyConfigSetting:
   extensions:
     - Dynamic\CompanyConfig\ORM\CompanyDataExtension
+Dynamic\Locator\Location:
+  extensions:
+    - Dynamic\CompanyConfig\ORM\LocationDataExtension
