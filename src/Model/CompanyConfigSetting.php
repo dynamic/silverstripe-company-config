@@ -2,6 +2,7 @@
 
 namespace Dynamic\CompanyConfig\Model;
 
+use Dynamic\CompanyConfig\Admin\CompanyConfigAdmin;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\FieldList;
@@ -48,7 +49,7 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
      * @var array
      * @config
      */
-    private static $required_permission = ['CMS_ACCESS_CMSMain', 'COMPANH_CONFIG_PERMISSION'];
+    private static $required_permission = ['CMS_ACCESS_CMSMain', 'COMPANY_CONFIG_PERMISSION'];
 
     public function getCMSFields()
     {
@@ -68,7 +69,7 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
      */
     public function getCMSActions()
     {
-        if (Permission::check('ADMIN') || Permission::check('COMPANH_CONFIG_PERMISSION')) {
+        if (Permission::check('ADMIN') || Permission::check('COMPANY_CONFIG_PERMISSION')) {
             $actions = new FieldList(
                 FormAction::create('save_companyconfig', _t('CompanyConfig.SAVE', 'Save'))
                     ->addExtraClass('btn-primary font-icon-save')
@@ -119,7 +120,7 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
             return $extended;
         }
 
-        return Permission::checkMember($member, 'COMPANH_CONFIG_PERMISSION');
+        return Permission::checkMember($member, 'COMPANY_CONFIG_PERMISSION');
     }
 
     /**
@@ -128,9 +129,9 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
     public function providePermissions()
     {
         return [
-            'COMPANH_CONFIG_PERMISSION' => [
+            'COMPANY_CONFIG_PERMISSION' => [
                 'name' => _t(
-                    'Dynamic\\CompanyConfig\\Model\\CompanyConfig.COMPANH_CONFIG_PERMISSION',
+                    'Dynamic\\CompanyConfig\\Model\\CompanyConfig.COMPANY_CONFIG_PERMISSION',
                     "Access to '{title}' section",
                     ['title' => CompanyConfigAdmin::menu_title()]
                 ),
@@ -139,7 +140,7 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
                     'CMS Access'
                 ),
                 'help' => _t(
-                    'Dynamic\\CompanyConfig\\Model\\CompanyConfig.COMPANH_CONFIG_PERMISSION_HELP',
+                    'Dynamic\\CompanyConfig\\Model\\CompanyConfig.COMPANY_CONFIG_PERMISSION_HELP',
                     'Ability to edit company colors.'
                 ),
                 'sort' => 400,

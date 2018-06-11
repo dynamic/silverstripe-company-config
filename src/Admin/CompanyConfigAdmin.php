@@ -48,7 +48,7 @@ class CompanyConfigAdmin extends LeftAndMain
     /**
      * @var array
      */
-    private static $required_permission_codes = ['TEMPLATE_CONFIG_PERMISSION'];
+    private static $required_permission_codes = ['COMPANY_CONFIG_PERMISSION'];
 
     /**
      * Initialises the {@link CompanyConfigSetting} controller.
