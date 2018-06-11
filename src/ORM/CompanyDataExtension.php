@@ -50,18 +50,5 @@ class CompanyDataExtension extends DataExtension
             ),
             TextField::create('CompanyName', 'Company Name'),
         ));
-
-        $config = GridFieldConfig_RecordEditor::create();
-        $config->removeComponentsByType('GridFieldAddExistingAutocompleter');
-        $location_field = GridField::create(
-            'Locations',
-            _t(__CLASS__ . '.LOCATIONS', 'Locations'),
-            Location::get(),
-            $config
-        );
-
-        $fields->addFieldsToTab('Root.Locations', [
-            $location_field,
-        ]);
     }
 }
