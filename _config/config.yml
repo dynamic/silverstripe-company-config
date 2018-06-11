@@ -1,0 +1,6 @@
+---
+Name: silverstripecompany-configconfig
+---
+Dynamic\CompanyConfig\Model\CompanyConfigSetting:
+  extensions:
+    - Dynamic\CompanyConfig\ORM\CompanyDataExtension

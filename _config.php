@@ -1,0 +1,4 @@
+<?php
+
+define('SILVERSTRIPE_COMPANY-CONFIG_PATH', __DIR__);
+define('SILVERSTRIPE_COMPANY-CONFIG_DIR', basename(__DIR__));

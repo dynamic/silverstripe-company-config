@@ -1,0 +1,3 @@
+Dynamic\CompanyConfig\Model\CompanyConfigSetting:
+  default:
+    CompanyName: "Dynamic"
