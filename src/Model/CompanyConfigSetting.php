@@ -3,6 +3,7 @@
 namespace Dynamic\CompanyConfig\Model;
 
 use Dynamic\CompanyConfig\Admin\CompanyConfigAdmin;
+use Dynamic\Locator\Location;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\FieldList;
@@ -80,6 +81,18 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
         $this->extend('updateCMSActions', $actions);
 
         return $actions;
+    }
+
+    /**
+     * Finds the primary {@see SubsiteDomain} object for this subsite
+     *
+     * @return SubsiteDomain
+     */
+    public function getPrimaryLocation()
+    {
+        return Location::get()
+            ->sort('"IsPrimary" DESC')
+            ->first();
     }
 
     /**
