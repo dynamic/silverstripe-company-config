@@ -16,6 +16,7 @@ use SilverStripe\Forms\TabSet;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\PermissionProvider;
+use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\View\Requirements;
 use SilverStripe\View\TemplateGlobalProvider;
 use TractorCow\Colorpicker\Forms\ColorField;
@@ -91,6 +92,7 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
     public function getPrimaryLocation()
     {
         return Location::get()
+            ->filter('SubsiteID', Subsite::currentSubsite())
             ->sort('"IsPrimary" DESC')
             ->first();
     }
