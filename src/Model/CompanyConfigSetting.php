@@ -56,6 +56,11 @@ class CompanyConfigSetting extends DataObject implements PermissionProvider, Tem
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName([
+            'LinkTracking',
+            'FileTracking',
+        ]);
+
         $fields->fieldByName('Root')->fieldByName('Main')
             ->setTitle('Info');
 
